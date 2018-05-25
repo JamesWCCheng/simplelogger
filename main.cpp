@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include "utils.h"
 using namespace std;
 class MOZILLA
 {
@@ -15,6 +16,8 @@ public:
 
 int main() {
 
+  SleepFor(2);
+  PrintTID("Test");
   //Test bin2Hex
   unsigned char ubin[] = {0xFF, 0xEE, 0x00, 0x55, 0x66};
   std::vector<std::remove_pointer<std::decay<decltype(ubin)>::type>::type> ubinVec;
