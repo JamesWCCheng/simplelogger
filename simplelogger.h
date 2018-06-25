@@ -244,9 +244,17 @@ namespace {
   }
 
   template<class Type>
-  void printInternal(Type aStr, const char* const aObjName)
+  typename std::enable_if<!std::is_enum<Type>::value>::type
+  printInternal(Type aVal, const char* const aObjName)
   {
-    std::cout << aObjName << " = " << aStr;
+    std::cout << aObjName << " = " << aVal;
+  }
+
+  template<class Type>
+  typename std::enable_if<std::is_enum<Type>::value>::type
+  printInternal(Type aEnum, const char* const aObjName)
+  {
+    std::cout << aObjName << " = " << static_cast<typename std::underlying_type<Type>::type>(aEnum);
   }
 
   void ezPrint() {

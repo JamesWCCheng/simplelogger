@@ -13,9 +13,17 @@ public:
     P(this);
   }
 };
-
+enum TestEnum
+{
+  E1,E2,E3
+};
+enum class TestEnumClass
+{
+  EC1,EC2,EC3
+};
 int main() {
 
+  PR(E1, TestEnumClass::EC1);
   SleepFor(2);
   PrintTID("Test");
   //Test bin2Hex
